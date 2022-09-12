@@ -1,15 +1,15 @@
 import pandas as pd
 from openpyxl import Workbook
-from sklearn import datasets
 
 wb = Workbook()
 ws = wb.active
 
-df = pd.read_excel('HF_data.xlsx', sheet_name='2016_2019')
+df = pd.read_excel('コピー.xlsx', sheet_name='2016_2019')
 
 #説明変数
 
-x = df[['前_入院回数(今回込）','後_入院回数']]
+x = df[['年齢','前_入院回数(今回込）','後_入院回数','高脂血症','心不全入院1']]
+""" x = df[['前_入院回数(今回込）','後_入院回数']] """
 y = df[['死亡1']]
 
 from sklearn.model_selection import train_test_split
@@ -20,9 +20,8 @@ y_train, y_test= train_test_split(y)
 
 
 
-""" print(x_train[['前_入院回数(今回込）']])
-print(x_train[['後_入院回数']]) """
-x1 = x_train[['前_入院回数(今回込）']]
+print(x_train)
+""" x1 = x_train[['前_入院回数(今回込）']]
 x2 = x_train[['後_入院回数']]
 
 print(x.shape)
@@ -40,7 +39,7 @@ ax.set_xlabel("x1")
 ax.set_ylabel("x2")
 ax.set_zlabel("y")
 
-plt.show()
+plt.show() """
 
 
 from sklearn import linear_model
@@ -62,4 +61,4 @@ print("MSE(Train): ", mse_train)
 #テストデータ
 out_test = model.predict(x_test)
 mse_test = mean_squared_error(y_test, out_test)
-print("MSE(Train): ", mse_test)
+print("MSE(Test): ", mse_test)
