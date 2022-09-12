@@ -1,4 +1,3 @@
 /.~lock.HF_data.xlsx#
-/HF_data.xlsx
-/regression.ipynb
-/test.xlsx
+*.ipynb
+*.xlsx
